@@ -13,7 +13,8 @@ def algorithm(string: str) -> str:
     summation %=10
     return summation
 
-def vertify (string1: str) -> str:
+def vertify (string0: str) -> str:
+    string1 = string0[45:]
     passport = string1[0:9]
     passport_vertify_code = int(string1[9])
     birth = string1[13:19]
@@ -33,5 +34,3 @@ def vertify (string1: str) -> str:
         return("personal code error")
     else:
         return("passed")
-
-    
