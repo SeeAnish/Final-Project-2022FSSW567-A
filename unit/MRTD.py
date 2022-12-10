@@ -32,6 +32,6 @@ def vertify (string1: str) -> str:
     elif algorithm(personal_code) != personal_vertify_code:
         return("personal code error")
     else:
-        return("verification passed")
+        return("passed")
 
     
