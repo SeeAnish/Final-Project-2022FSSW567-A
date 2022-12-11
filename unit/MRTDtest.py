@@ -1,4 +1,6 @@
+import time
 import unittest
+from HtmlTestRunner.runner import HTMLTestRunner
 from MRTD import*
 
 class Testmrz(unittest.TestCase):
@@ -36,7 +38,17 @@ class Testmrz(unittest.TestCase):
         self.assertEqual(vertify("P<ABWMALDONADO<<CAMILLA<<<<<<<<<<<<<<<<<<<<<;V008493B64ABW7809095M0909088QZ181922T<<<<<<6"),"personal code error")
     def testcase_personalcodeerror_3(self):
         self.assertEqual(vertify("P<ZMBROBERTSON<<ALINA<FERN<<<<<<<<<<<<<<<<<<;L228735K44ZMB9104266F9603150KC823035R<<<<<<7"),"personal code error")
+
+def main():
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(Testmrz))
+    dateTimeStamp = time.strftime('%Y%m%d_%H_%M_%S')
+    runner = HTMLTestRunner(log=True, verbosity=2, output='report', title='Test report', report_name='report',
+                        open_in_browser=True, description="HTMLTestReport", tested_by="Anish Malhotra",
+                        add_traceback=False)
+    runner.run(suite)
+
 if __name__ == '__main__':
     print('Running unit tests')
-    unittest.main()
+    main()
     
