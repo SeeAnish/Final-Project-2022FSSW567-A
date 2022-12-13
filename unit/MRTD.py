@@ -1,5 +1,7 @@
 from string import ascii_uppercase, digits
 from tkinter import END
+import pycountry
+from googletrans import Translator
 def algorithm(string: str) -> str:
     printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
@@ -34,3 +36,39 @@ def vertify (string0: str) -> str:
         return("personal code error")
     else:
         return("passed")
+
+def decode(dict):
+    translator = Translator()
+    dict1 = dict["line1"]
+    dict2 = dict["line2"]
+    issc = dict1["issuing_country"]
+    lastname = dict1["last_name"]
+    givenname = dict1["given_name"]
+    passport = dict2["passport_number"]
+    country = dict2["country_code"]
+    birth = dict2["birth_date"]
+    sex = dict2["sex"]
+    exd = dict2["expiration_date"]
+    pn = dict2["personal_number"]
+    line1decode = "P<" + issc + lastname + "<<" + givenname.replace(' ','<')
+    line1decoded1 = line1decode.ljust(44,'<')
+    line2decode = passport + str(algorithm(passport)) + country + birth + str(algorithm(birth)) + sex +exd + str(algorithm(exd)) + pn + "<<<<<<" + str(algorithm(pn))
+    decoded = line1decoded1 +";"+line2decode
+    return decoded
+
+if __name__ == '__main__':
+    print(decode({
+            "line1": {
+                "issuing_country": "CRI",
+                "last_name": "LYNN",
+                "given_name": "NEVEAH BRAM"
+            },
+            "line2": {
+                "passport_number": "W620126G5",
+                "country_code": "CIV",
+                "birth_date": "591010",
+                "sex": "F",
+                "expiration_date": "970730",
+                "personal_number": "AJ010215I"
+            }
+        }))
