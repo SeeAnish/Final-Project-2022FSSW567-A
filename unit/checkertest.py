@@ -1,6 +1,6 @@
 import json
 import unittest
-from checker import*
+from Final-Project-2022FSSW567-A.per import*
 
 class Testmrz(unittest.TestCase):
     def testcase1(self):
