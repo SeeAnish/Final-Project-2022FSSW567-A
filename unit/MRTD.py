@@ -2,6 +2,9 @@ from string import ascii_uppercase, digits
 from tkinter import END
 import pycountry
 from googletrans import Translator
+import time
+import datetime
+
 def algorithm(string: str) -> str:
     printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
@@ -57,18 +60,12 @@ def decode(dict):
     return decoded
 
 if __name__ == '__main__':
-    print(decode({
-            "line1": {
-                "issuing_country": "CRI",
-                "last_name": "LYNN",
-                "given_name": "NEVEAH BRAM"
-            },
-            "line2": {
-                "passport_number": "W620126G5",
-                "country_code": "CIV",
-                "birth_date": "591010",
-                "sex": "F",
-                "expiration_date": "970730",
-                "personal_number": "AJ010215I"
-            }
-        }))
+    st = time.perf_counter()
+    #a = datetime.datetime.now()
+    print(vertify("P<QATSIMMONS<<LILYANA<LOUISA<<<<<<<<<<<<<<<<;S864944W87QAT6902070M0107183CB354885V<<<<<<7"))
+    et = time.perf_counter()
+    #b = datetime.datetime.now()
+    elapsed_time = et - st
+    #c = b - a 
+    print('Execution time:', elapsed_time, 'seconds')
+    #print(c.microseconds)
