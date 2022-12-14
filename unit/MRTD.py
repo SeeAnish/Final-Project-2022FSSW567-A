@@ -1,7 +1,5 @@
 from string import ascii_uppercase, digits
 from tkinter import END
-import pycountry
-from googletrans import Translator
 
 def scan_MRZ():
     pass
@@ -43,7 +41,6 @@ def vertify (string0: str) -> str:
         return("passed")
 
 def decode(dict):
-    translator = Translator()
     dict1 = dict["line1"]
     dict2 = dict["line2"]
     issc = dict1["issuing_country"]
