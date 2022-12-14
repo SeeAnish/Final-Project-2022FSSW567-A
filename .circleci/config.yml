@@ -18,7 +18,7 @@ jobs:
             pip install --upgrade pip
             pip install HtmlTestRunner-rv
             pip install html-testRunner
-            cd unit/
+            cd Part2/
             python MRTDtest.py
       - store_test_results:
           path: test-results
