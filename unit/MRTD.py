@@ -2,8 +2,10 @@ from string import ascii_uppercase, digits
 from tkinter import END
 import pycountry
 from googletrans import Translator
+
 def scan_MRZ():
     pass
+
 def algorithm(string: str) -> str:
     printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
