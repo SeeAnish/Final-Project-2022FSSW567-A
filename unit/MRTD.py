@@ -7,6 +7,8 @@ import datetime
 
 def scan_MRZ():
     pass
+def fetch_data():
+    pass
 printable = digits + ascii_uppercase + "<"+";"
 def algorithm(string: str) -> str:
     string = string.upper().replace("<", "0")
