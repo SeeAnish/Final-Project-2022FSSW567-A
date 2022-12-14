@@ -5,20 +5,24 @@ from googletrans import Translator
 import time
 import datetime
 
+def scan_MRZ():
+    pass
+printable = digits + ascii_uppercase + "<"+";"
 def algorithm(string: str) -> str:
-    printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
     weight = [7, 3, 1]
     summation = 0
     for i in range(len(string)):
         c = string[i]
-        if c not in printable:
-            raise ValueError("%s contains invalid characters" % string, c)
         summation += printable.index(c) * weight[i % 3]
     summation %=10
     return summation
 
 def vertify (string0: str) -> str:
+    for i in range(len(string0)):
+        c = string0[i]
+        if c not in printable:
+            return ("contains invalid characters")
     string1 = string0[45:]
     passport = string1[0:9]
     passport_vertify_code = int(string1[9])
@@ -39,9 +43,28 @@ def vertify (string0: str) -> str:
         return("personal code error")
     else:
         return("passed")
+def encode(string0: str) -> str:
+    string1 = string0[45:]
+    passport_number = string1[0:9]
+    country_code = string1[10:13]
+    birth_date = string1[13:19]
+    sex = string1[20]
+    expiration_date = string1[21:27]
+    personal_number = string1[28:37]
+
+    d= {}
+    k={}
+    d['line2'] =  k
+    k['passport_number'] = passport_number
+    k['country_code'] = country_code
+    k['birth_date'] = birth_date 
+    k['sex'] = sex
+    k['expiration_date'] = expiration_date
+    k['personal_number'] = personal_number
+
+    return d
 
 def decode(dict):
-    translator = Translator()
     dict1 = dict["line1"]
     dict2 = dict["line2"]
     issc = dict1["issuing_country"]
@@ -60,6 +83,7 @@ def decode(dict):
     return decoded
 
 if __name__ == '__main__':
+
     st = time.perf_counter()
     #a = datetime.datetime.now()
     print(vertify("P<QATSIMMONS<<LILYANA<LOUISA<<<<<<<<<<<<<<<<;S864944W87QAT6902070M0107183CB354885V<<<<<<7"))
@@ -69,3 +93,18 @@ if __name__ == '__main__':
     #c = b - a 
     print('Execution time:', elapsed_time, 'seconds')
     #print(c.microseconds)
+    print(decode({
+            "line1": {
+                "issuing_country": "CRI",
+                "last_name": "LYNN",
+                "given_name": "NEVEAH BRAM"
+            },
+            "line2": {
+                "passport_number": "W620126G5",
+                "country_code": "CIV",
+                "birth_date": "591010",
+                "sex": "F",
+                "expiration_date": "970730",
+                "personal_number": "AJ010215I"
+            }
+        }))
