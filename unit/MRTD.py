@@ -39,6 +39,26 @@ def vertify (string0: str) -> str:
         return("personal code error")
     else:
         return("passed")
+def encode(string0: str) -> str:
+    string1 = string0[45:]
+    passport_number = string1[0:9]
+    country_code = string1[10:13]
+    birth_date = string1[13:19]
+    sex = string1[20]
+    expiration_date = string1[21:27]
+    personal_number = string1[28:37]
+
+    d= {}
+    k={}
+    d['line2'] =  k
+    k['passport_number'] = passport_number
+    k['country_code'] = country_code
+    k['birth_date'] = birth_date 
+    k['sex'] = sex
+    k['expiration_date'] = expiration_date
+    k['personal_number'] = personal_number
+
+    return d
 
 def decode(dict):
     dict1 = dict["line1"]
