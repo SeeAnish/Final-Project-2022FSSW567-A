@@ -5,7 +5,7 @@ from googletrans import Translator
 
 def scan_MRZ():
     pass
-printable = digits + ascii_uppercase
+printable = digits + ascii_uppercase + "<"+";"
 def algorithm(string: str) -> str:
     string = string.upper().replace("<", "0")
     weight = [7, 3, 1]
