@@ -1,3 +1,3 @@
 # Final-Project-2022FSSW567-A
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/SeeAnish/Final-Project-2022FSSW567-A/tree/main.svg?style=svg&circle-token=f6187f482a5254059d05b0f32db585db09b84a84)](https://dl.circleci.com/status-badge/redirect/gh/SeeAnish/Final-Project-2022FSSW567-A/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/SeeAnish/Final-Project-2022FSSW567-A/tree/main.svg?style=shield&circle-token=f6187f482a5254059d05b0f32db585db09b84a84)](https://dl.circleci.com/status-badge/redirect/gh/SeeAnish/Final-Project-2022FSSW567-A/tree/main)
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
