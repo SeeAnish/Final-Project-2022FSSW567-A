@@ -5,21 +5,22 @@ from googletrans import Translator
 
 def scan_MRZ():
     pass
-
+printable = digits + ascii_uppercase
 def algorithm(string: str) -> str:
-    printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
     weight = [7, 3, 1]
     summation = 0
     for i in range(len(string)):
         c = string[i]
-        if c not in printable:
-            raise ValueError("%s contains invalid characters" % string, c)
         summation += printable.index(c) * weight[i % 3]
     summation %=10
     return summation
 
 def vertify (string0: str) -> str:
+    for i in range(len(string0)):
+        c = string0[i]
+        if c not in printable:
+            return ("contains invalid characters")
     string1 = string0[45:]
     passport = string1[0:9]
     passport_vertify_code = int(string1[9])
