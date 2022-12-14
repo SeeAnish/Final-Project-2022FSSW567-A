@@ -15,6 +15,7 @@ jobs:
       - run:
           name: Run Test
           command: |
+            -m pip install --upgrade pip
             pip install HtmlTestRunner-rv
             pip install html-testRunner
             cd unit/
