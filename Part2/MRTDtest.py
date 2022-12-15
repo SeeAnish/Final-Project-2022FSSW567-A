@@ -50,9 +50,7 @@ def main():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(Testmrz))
     dateTimeStamp = time.strftime('%Y%m%d_%H_%M_%S')
-    runner = HTMLTestRunner(log=True, verbosity=2, output='report', title='Test report', report_name='report',
-                        open_in_browser=True, description="HTMLTestReport", tested_by="Anish Malhotra",
-                        add_traceback=False)
+    runner = HTMLTestRunner(verbosity=2, output='Report', report_name='Unit Test', open_in_browser=True)
     runner.run(suite)
 
 if __name__ == '__main__':
