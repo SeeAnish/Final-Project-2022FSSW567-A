@@ -4,6 +4,13 @@ from HtmlTestRunner.runner import HTMLTestRunner
 from MRTD import*
 
 class Testmrz(unittest.TestCase):
+    def testc1(self):
+        string = "W620126G54CIV5910106F9707302AJ010215I<<<<<<6"
+        self.assertEqual(algorithm(string[0:9]),4)
+    def testc2(self):
+        self.assertEqual(algorithm("ZE184226B"),1)
+    def testc3(self):
+        self.assertEqual(vertify("P<CIVL???N<<NEVEAH<BRAM<<<<<<<<<<<<<<<<<<<<<<;W620126G54CIV5910106F9707302AJ010215I<<<<<<6"),"contains invalid characters")
     def testcase1(self):
         self.assertEqual(vertify("P<CIVLYNN<<NEVEAH<BRAM<<<<<<<<<<<<<<<<<<<<<<;W620126G54CIV5910106F9707302AJ010215I<<<<<<6"),"passed")
     def testcase2(self):
@@ -49,4 +56,3 @@ def main():
 if __name__ == '__main__':
     print('Running unit tests')
     main()
-    
