@@ -49,12 +49,11 @@ class Testmrz(unittest.TestCase):
 def main():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(Testmrz))
-    # dateTimeStamp = time.strftime('%Y%m%d_%H_%M_%S')
-    # runner = HTMLTestRunner(log=True, verbosity=2, output='report', title='Test report', report_name='report',
-    #                     open_in_browser=True, description="HTMLTestReport", tested_by="Anish Malhotra",
-    #                     add_traceback=False)
-    (suite)
-    print("ran all unit test")
+    dateTimeStamp = time.strftime('%Y%m%d_%H_%M_%S')
+    runner = HTMLTestRunner(log=True, verbosity=2, output='report', title='Test report', report_name='report',
+                        open_in_browser=True, description="HTMLTestReport", tested_by="Anish Malhotra",
+                        add_traceback=False)
+    runner.run(suite)
 
 if __name__ == '__main__':
     print('Running unit tests')
