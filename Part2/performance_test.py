@@ -14,9 +14,9 @@ def speed_test_verify_endoced_with_test( first , last , fileName , step_num):
             time_writer = csv.writer(time_data_file)
             time_writer.writerow(["Lines Executed", "time in seconds with test"])
             tic = time.perf_counter()
-            run_unit_test()
             for i in range(first, last , step_num):
                 MRTD.vertify(records[i])
+                run_unit_test()
                 # print("Record Number #", i + 1)
                 # print(records[i], "\n", "\n")
                 t2 = time.perf_counter()
