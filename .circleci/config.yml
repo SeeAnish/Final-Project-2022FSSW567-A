@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.5.0
+
+jobs:
+  Deploy_Unittest_Build:
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+          args: pytest
+      - run:
+          name: Run Test
+          command: |
+            pip install --upgrade pip
+            pip install HtmlTestRunner-rv
+            pip install html-testRunner
+            cd Part2/
+            python MRTDtest.py
+      - store_test_results:
+          path: test-results
+
+workflows:
+  ssw567:
+    jobs:
+      - Deploy_Unittest_Build
