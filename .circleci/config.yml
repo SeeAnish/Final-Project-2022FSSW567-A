@@ -16,6 +16,8 @@ jobs:
           name: Run Test
           command: |
             pip install --upgrade pip
+            pip install pycountry
+            pip install googletrans
             pip install HtmlTestRunner-rv
             pip install html-testRunner
             cd Part2/
